@@ -17,6 +17,7 @@
 
 @optional
 - (void)headImageClicked:(NSString *)eId;
+
 - (void)reSendMessage:(BaseChatTableViewCell *)baseCell;
 
 
@@ -24,10 +25,12 @@
 
 @interface BaseChatTableViewCell : UITableViewCell
 
+@property (nonatomic, assign)id<BaseChatTableViewCellDelegate>delegate;
+
 // 消息模型
 @property (nonatomic, strong) MessageModel *modelFrame;
 
-@property (nonatomic, strong)UIImageView *avatarImageView;//头像
+@property (nonatomic, strong)UIImageView *headImageView;//头像
 
 @property (nonatomic, strong)UILabel *nickName;//昵称
 
@@ -38,5 +41,7 @@
 @property (nonatomic, strong) UIButton *retryButton;//重复按钮
 
 @property (nonatomic, strong) UILabel *messageStatus;//是否已读或未读
+
+-(NSString *)subClassName;
 
 @end

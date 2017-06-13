@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger,MessageFrom) {
 //消息元素
 @interface MessageItem : NSObject
 
-@property (nonatomic, copy)NSString *messageID;
+@property (nonatomic, copy)NSString *userID;
 @property (nonatomic, copy)NSString *messageIdentifier;//消息标识((消息+时间)的MD5)
 
 @property (nonatomic, assign)MessageSendState sendState;//发送状态
@@ -51,6 +51,10 @@ typedef NS_ENUM(NSInteger,MessageFrom) {
 @property (nonatomic, copy)NSString *toID;//消息目的地ID
 
 @property (nonatomic, assign)NSInteger messageDate;//消息时间
+@property (nonatomic, copy)NSString *headImageUrl;//头像
+@property (nonatomic, copy)NSString *nickName;//昵称
+
+-(NSString *)cellTypeString;
 
 @end
 

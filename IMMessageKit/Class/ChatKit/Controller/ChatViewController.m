@@ -8,6 +8,11 @@
 
 #import "ChatViewController.h"
 #import "ConversationModel.h"
+#import "BaseChatTableViewCell.h"
+#import "ChatTextCell.h"
+#import "ChatPhotoCell.h"
+#import "MessageModel.h"
+
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,11 +37,17 @@
 
 -(void)configureUI{
     
+    [self.view addSubview:self.tableview];
+    [self registerCell];
 }
 
--(void)viewDidLayoutSubviews{
-    
+- (void)registerCell
+{
+    [self.tableview registerClass:[ChatTextCell class] forCellReuseIdentifier:NSStringFromClass([ChatTextCell class])];
+    [self.tableview registerClass:[ChatPhotoCell class] forCellReuseIdentifier:NSStringFromClass([ChatPhotoCell class])];
 }
+
+
 
 -(void)setConversationModel:(ConversationModel *)conversationModel{
     _conversationModel = conversationModel;
@@ -49,6 +60,9 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MessageModel *model = self.dataArray[indexPath.row];
+    BaseChatTableViewCell *cell = [self.tableview dequeueReusableCellWithIdentifier:[model.messageItem cellTypeString]];
+    cell.modelFrame = model;
     return cell;
 }
 
@@ -57,7 +71,7 @@
 -(UITableView *)tableview{
     if (!_tableview) {
         _tableview = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _tableview.backgroundColor = XZRGB(0xf4f1f1);
+        _tableview.backgroundColor = XZColor(240, 237, 237);
         _tableview.delegate = self;
         _tableview.dataSource = self;
         [self.view addSubview:_tableview];

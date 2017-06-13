@@ -10,5 +10,5 @@
 @class ConversationModel;
 
 @interface ChatViewController : UIViewController
-@property (nonatomic, strong)ConversationModel *conversationModel;
+@property (nonatomic, strong)ConversationModel *conversationModel;//传入会话模型
 @end
