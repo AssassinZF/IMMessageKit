@@ -1,28 +1,26 @@
 //
-//  ViewController.m
+//  MessageListViewController.m
 //  IMMessageKit
 //
 //  Created by zhanfeng on 2017/6/13.
 //  Copyright © 2017年 lzf. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MessageListViewController.h"
 
-@interface ViewController ()
+@interface MessageListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MessageListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

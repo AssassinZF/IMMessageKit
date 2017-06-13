@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		5460D3DC1EEFCBC100448ED3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DB1EEFCBC100448ED3 /* main.m */; };
 		5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */; };
-		5460D3E21EEFCBC100448ED3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3E11EEFCBC100448ED3 /* ViewController.m */; };
 		5460D3E51EEFCBC100448ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460D3E31EEFCBC100448ED3 /* Main.storyboard */; };
 		5460D3E71EEFCBC100448ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5460D3E61EEFCBC100448ED3 /* Assets.xcassets */; };
 		5460D3EA1EEFCBC100448ED3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5460D3E81EEFCBC100448ED3 /* LaunchScreen.storyboard */; };
 		5460D3F51EEFCBC100448ED3 /* IMMessageKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3F41EEFCBC100448ED3 /* IMMessageKitTests.m */; };
 		5460D4001EEFCBC100448ED3 /* IMMessageKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3FF1EEFCBC100448ED3 /* IMMessageKitUITests.m */; };
+		5460D4151EEFCCA800448ED3 /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D4141EEFCCA800448ED3 /* TabbarViewController.m */; };
+		5460D4181EEFCD1E00448ED3 /* BaseNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D4171EEFCD1E00448ED3 /* BaseNavViewController.m */; };
+		5460D42C1EEFD25D00448ED3 /* ChaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D4271EEFD25D00448ED3 /* ChaViewController.m */; };
+		5460D42D1EEFD25D00448ED3 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D4291EEFD25D00448ED3 /* MessageListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,6 @@
 		5460D3DB1EEFCBC100448ED3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5460D3DD1EEFCBC100448ED3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5460D3E01EEFCBC100448ED3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5460D3E11EEFCBC100448ED3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5460D3E41EEFCBC100448ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5460D3E61EEFCBC100448ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5460D3E91EEFCBC100448ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,16 @@
 		5460D3FB1EEFCBC100448ED3 /* IMMessageKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMMessageKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5460D3FF1EEFCBC100448ED3 /* IMMessageKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMMessageKitUITests.m; sourceTree = "<group>"; };
 		5460D4011EEFCBC100448ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5460D4131EEFCCA800448ED3 /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
+		5460D4141EEFCCA800448ED3 /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
+		5460D4161EEFCD1E00448ED3 /* BaseNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavViewController.h; sourceTree = "<group>"; };
+		5460D4171EEFCD1E00448ED3 /* BaseNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavViewController.m; sourceTree = "<group>"; };
+		5460D41A1EEFCDE400448ED3 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5460D41B1EEFCDF600448ED3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5460D4261EEFD25D00448ED3 /* ChaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChaViewController.h; sourceTree = "<group>"; };
+		5460D4271EEFD25D00448ED3 /* ChaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChaViewController.m; sourceTree = "<group>"; };
+		5460D4281EEFD25D00448ED3 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListViewController.h; sourceTree = "<group>"; };
+		5460D4291EEFD25D00448ED3 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +112,15 @@
 		5460D3D91EEFCBC100448ED3 /* IMMessageKit */ = {
 			isa = PBXGroup;
 			children = (
+				5460D41C1EEFD0D300448ED3 /* Class */,
 				5460D3DD1EEFCBC100448ED3 /* AppDelegate.h */,
 				5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */,
-				5460D3E01EEFCBC100448ED3 /* ViewController.h */,
-				5460D3E11EEFCBC100448ED3 /* ViewController.m */,
+				5460D4131EEFCCA800448ED3 /* TabbarViewController.h */,
+				5460D4141EEFCCA800448ED3 /* TabbarViewController.m */,
+				5460D4161EEFCD1E00448ED3 /* BaseNavViewController.h */,
+				5460D4171EEFCD1E00448ED3 /* BaseNavViewController.m */,
+				5460D41A1EEFCDE400448ED3 /* PrefixHeader.pch */,
+				5460D41B1EEFCDF600448ED3 /* Constants.h */,
 				5460D3E31EEFCBC100448ED3 /* Main.storyboard */,
 				5460D3E61EEFCBC100448ED3 /* Assets.xcassets */,
 				5460D3E81EEFCBC100448ED3 /* LaunchScreen.storyboard */,
@@ -138,6 +154,57 @@
 				5460D4011EEFCBC100448ED3 /* Info.plist */,
 			);
 			path = IMMessageKitUITests;
+			sourceTree = "<group>";
+		};
+		5460D41C1EEFD0D300448ED3 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5460D41D1EEFD0D300448ED3 /* ChatKeyboard */,
+				5460D41E1EEFD0D300448ED3 /* ChatKit */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5460D41D1EEFD0D300448ED3 /* ChatKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatKeyboard;
+			sourceTree = "<group>";
+		};
+		5460D41E1EEFD0D300448ED3 /* ChatKit */ = {
+			isa = PBXGroup;
+			children = (
+				5460D4251EEFD25D00448ED3 /* Controller */,
+				5460D42A1EEFD25D00448ED3 /* Model */,
+				5460D42B1EEFD25D00448ED3 /* View */,
+			);
+			path = ChatKit;
+			sourceTree = "<group>";
+		};
+		5460D4251EEFD25D00448ED3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5460D4261EEFD25D00448ED3 /* ChaViewController.h */,
+				5460D4271EEFD25D00448ED3 /* ChaViewController.m */,
+				5460D4281EEFD25D00448ED3 /* MessageListViewController.h */,
+				5460D4291EEFD25D00448ED3 /* MessageListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5460D42A1EEFD25D00448ED3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5460D42B1EEFD25D00448ED3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5460D3E21EEFCBC100448ED3 /* ViewController.m in Sources */,
+				5460D4151EEFCCA800448ED3 /* TabbarViewController.m in Sources */,
 				5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */,
 				5460D3DC1EEFCBC100448ED3 /* main.m in Sources */,
+				5460D42C1EEFD25D00448ED3 /* ChaViewController.m in Sources */,
+				5460D42D1EEFD25D00448ED3 /* MessageListViewController.m in Sources */,
+				5460D4181EEFCD1E00448ED3 /* BaseNavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/zhanfeng/Desktop/IMMessageKit/IMMessageKit/PrefixHeader.pch;
 				INFOPLIST_FILE = IMMessageKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzf.IMMessageKit;
@@ -437,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/zhanfeng/Desktop/IMMessageKit/IMMessageKit/PrefixHeader.pch;
 				INFOPLIST_FILE = IMMessageKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzf.IMMessageKit;

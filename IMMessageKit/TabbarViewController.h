@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TabbarViewController.h
 //  IMMessageKit
 //
 //  Created by zhanfeng on 2017/6/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TabbarViewController : UITabBarController
 
 @end
-
