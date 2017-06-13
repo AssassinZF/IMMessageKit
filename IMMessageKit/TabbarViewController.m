@@ -8,7 +8,6 @@
 
 #import "TabbarViewController.h"
 #import "MessageListViewController.h"
-#import "ChaViewController.h"
 #import "BaseNavViewController.h"
 
 @interface TabbarViewController ()
