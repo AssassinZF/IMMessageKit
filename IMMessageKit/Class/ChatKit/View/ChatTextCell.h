@@ -9,5 +9,5 @@
 #import "BaseChatTableViewCell.h"
 
 @interface ChatTextCell : BaseChatTableViewCell
-
+@property (nonatomic, strong)UILabel *contentLabel;
 @end

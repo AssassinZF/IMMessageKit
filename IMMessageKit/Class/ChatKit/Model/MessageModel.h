@@ -19,6 +19,9 @@
 @property (nonatomic, assign,readonly)CGRect avatarViewF;//头像
 @property (nonatomic, assign, readonly) CGRect activityF;//消息指示
 @property (nonatomic, assign, readonly) CGRect retryButtonF;//重新发送按钮
+@property (nonatomic, assign, readonly) CGRect dateLabelF;//发送时间label
+@property (nonatomic, assign, readonly) CGRect nickNameF;//昵称位置
+
 
 
 @end

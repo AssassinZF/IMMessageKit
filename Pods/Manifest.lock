@@ -3,15 +3,20 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
   - SDWebImage (~> 3.8.0)
+  - YYCategories
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: d0d5b9ab12b4479a4f907ffe8bca5c4bc0117b41
+PODFILE CHECKSUM: cdacfad55237dffd278d2a3baf3cabcc352c553a
 
 COCOAPODS: 1.2.1

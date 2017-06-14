@@ -11,6 +11,8 @@
 #import "ConversationModel.h"
 #import "ChatViewController.h"
 
+static CGFloat CELL_H = 67.0;
+
 @interface MessageListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableview;
 @property (nonatomic, strong)NSMutableArray *dataArray;
@@ -96,7 +98,8 @@
         _tableview.backgroundColor = XZRGB(0xf4f1f1);
         _tableview.delegate = self;
         _tableview.dataSource = self;
-        _tableview.rowHeight = 67.0;
+        _tableview.rowHeight = CELL_H;
+        _tableview.tableFooterView = [UIView new];
         [self.view addSubview:_tableview];
         [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));

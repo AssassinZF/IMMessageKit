@@ -48,13 +48,29 @@ typedef NS_ENUM(NSInteger,MessageFrom) {
 @property (nonatomic, assign)MessageType messageType;//消息类型
 @property (nonatomic, assign)MessageFrom messageFrom;//消息来源
 
+@property (nonatomic, copy)NSString *fromID;//消息来源ID
 @property (nonatomic, copy)NSString *toID;//消息目的地ID
 
 @property (nonatomic, assign)NSInteger messageDate;//消息时间
 @property (nonatomic, copy)NSString *headImageUrl;//头像
 @property (nonatomic, copy)NSString *nickName;//昵称
 
+@property (nonatomic, copy)NSString *content;//文本内容
+
+@property (nonatomic, assign)BOOL isShowDate;//是否显示发送时间
+
+@property (nonatomic, assign)BOOL isShowNickName;//显示成员昵称:用于群组聊天
+
+
+
+/**
+ 返回子类的类名字符
+
+ @return string
+ */
 -(NSString *)cellTypeString;
+
++(MessageItem *)creatClass:(MessageType)messageType;
 
 @end
 
@@ -62,16 +78,20 @@ typedef NS_ENUM(NSInteger,MessageFrom) {
 
 @interface TextMessageItem : MessageItem
 
-@property (nonatomic, copy)NSString *content;
-
 @end
 
 #pragma mark ------------------------- 图片消息
 
 @interface PhotoMessageItem : MessageItem
 
-@property (nonatomic, copy)NSString *photoUrl;
+@property (nonatomic, copy)NSString *imagePath;
 
+@end
+
+#pragma mark ------------------------- 音频
+
+@interface VoiceMessageItem : MessageItem
+@property (nonatomic, copy)NSString *voicePath;
 @end
 
 

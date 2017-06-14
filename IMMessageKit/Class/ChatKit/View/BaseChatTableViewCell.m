@@ -33,7 +33,9 @@
     [self.contentView addSubview:self.activityView];
     [self.contentView addSubview:self.retryButton];
     [self.contentView addSubview:self.messageStatus];
-
+    [self.contentView addSubview:self.nickName];
+    [self.contentView addSubview:self.dateLabel];
+    
 }
 
 #pragma mark - longPress delegate
@@ -105,6 +107,27 @@
     return _messageStatus;
 }
 
+-(UILabel *)dateLabel{
+    if (!_dateLabel) {
+        _dateLabel = [[UILabel alloc] init];
+        _dateLabel.backgroundColor = [UIColor clearColor];
+        _dateLabel.textColor = [UIColor redColor];
+        _dateLabel.font = [UIFont systemFontOfSize:13];
+        _dateLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _dateLabel;
+}
+
+-(UILabel *)nickName{
+    if (!_nickName) {
+        _nickName = [[UILabel alloc] init];
+        _nickName.backgroundColor = [UIColor clearColor];
+        _nickName.textColor = [UIColor redColor];
+        _nickName.font = [UIFont systemFontOfSize:13];
+    }
+    return _nickName;
+}
+
 -(void)setModelFrame:(MessageModel *)modelFrame{
     _modelFrame = modelFrame;
     self.headImageView.frame = modelFrame.avatarViewF;
@@ -146,7 +169,8 @@
             break;
     }
     
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:modelFrame.messageItem.headImageUrl] placeholderImage:nil];//头像
+//    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:modelFrame.messageItem.headImageUrl] placeholderImage:nil];//头像
+    self.headImageView.image = [UIImage imageNamed:@"mayun.jpg"];
     
 
 }

@@ -12,6 +12,7 @@
 #import "ChatTextCell.h"
 #import "ChatPhotoCell.h"
 #import "MessageModel.h"
+#import "IMMessageAnalysis.h"
 
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -29,6 +30,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self configureUI];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +50,6 @@
 }
 
 
-
 -(void)setConversationModel:(ConversationModel *)conversationModel{
     _conversationModel = conversationModel;
     self.title = _conversationModel.conversationName;
@@ -66,6 +67,10 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
+
 #pragma mark ------------------------- Getr
 
 -(UITableView *)tableview{
@@ -74,6 +79,7 @@
         _tableview.backgroundColor = XZColor(240, 237, 237);
         _tableview.delegate = self;
         _tableview.dataSource = self;
+        _tableview.tableFooterView = [UIView new];
         [self.view addSubview:_tableview];
         [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -88,6 +94,40 @@
         _dataArray = @[].mutableCopy;
     }
     return _dataArray;
+}
+
+#pragma mark ------------------------- Private Method
+
+- (void)scrollToBottom
+{
+    if (self.dataArray.count > 0) {
+        [self.tableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    }
+}
+
+
+
+#pragma mark ------------------------- 假数据 
+-(void)loadData{
+    MessageModel *message1 = [IMMessageAnalysis CreatMessageWithType:MessageType_Text
+                                    content:@"在吗?"
+                                   filePath:nil
+                                     fromID:@"1"
+                                       toID:@"2"
+                                messageFrom:MessageFrom_output];
+    MessageModel *message2 = [IMMessageAnalysis CreatMessageWithType:MessageType_Text
+                                    content:@"在吗?"
+                                   filePath:nil
+                                     fromID:@"1"
+                                       toID:@"2"
+                                messageFrom:MessageFrom_input];
+    
+    [self.dataArray addObject:message1];
+    [self.dataArray addObject:message2];
+    
+    [self.tableview reloadData];
+    [self scrollToBottom];
+
 }
 
 

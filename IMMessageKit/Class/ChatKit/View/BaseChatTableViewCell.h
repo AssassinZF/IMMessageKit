@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @class BaseChatTableViewCell,MessageModel;
 
 @protocol BaseChatTableViewCellDelegate <NSObject>
@@ -41,6 +40,8 @@
 @property (nonatomic, strong) UIButton *retryButton;//重复按钮
 
 @property (nonatomic, strong) UILabel *messageStatus;//是否已读或未读
+
+@property (nonatomic, strong)UILabel *dateLabel;//发送时间label
 
 -(NSString *)subClassName;
 

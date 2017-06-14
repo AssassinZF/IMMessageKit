@@ -11,6 +11,8 @@
 		20FB1BDD2D192D75DFC9F5AF /* libPods-IMMessageKitUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA87795B6A4D08790FCC9F1D /* libPods-IMMessageKitUITests.a */; };
 		540649B31EF00F8C00181C78 /* ChatTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649B21EF00F8C00181C78 /* ChatTextCell.m */; };
 		540649B61EF0126700181C78 /* ChatPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649B51EF0126700181C78 /* ChatPhotoCell.m */; };
+		540649F01EF0DA2C00181C78 /* IMMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */; };
+		540649F31EF0E91A00181C78 /* ChatVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649F21EF0E91A00181C78 /* ChatVoiceCell.m */; };
 		54072ECC1EF0038600F42DC6 /* BaseChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */; };
 		5460D3DC1EEFCBC100448ED3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DB1EEFCBC100448ED3 /* main.m */; };
 		5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */; };
@@ -59,6 +61,11 @@
 		540649B21EF00F8C00181C78 /* ChatTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTextCell.m; sourceTree = "<group>"; };
 		540649B41EF0126700181C78 /* ChatPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatPhotoCell.h; sourceTree = "<group>"; };
 		540649B51EF0126700181C78 /* ChatPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatPhotoCell.m; sourceTree = "<group>"; };
+		540649EE1EF0DA2C00181C78 /* IMMessageAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMessageAnalysis.h; sourceTree = "<group>"; };
+		540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMessageAnalysis.m; sourceTree = "<group>"; };
+		540649F11EF0E91A00181C78 /* ChatVoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatVoiceCell.h; sourceTree = "<group>"; };
+		540649F21EF0E91A00181C78 /* ChatVoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatVoiceCell.m; sourceTree = "<group>"; };
+		54064A181EF12E8100181C78 /* ChatConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatConst.h; sourceTree = "<group>"; };
 		54072ECA1EF0038600F42DC6 /* BaseChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChatTableViewCell.h; sourceTree = "<group>"; };
 		54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChatTableViewCell.m; sourceTree = "<group>"; };
 		5460D3D71EEFCBC100448ED3 /* IMMessageKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMMessageKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +283,8 @@
 				540649B21EF00F8C00181C78 /* ChatTextCell.m */,
 				540649B41EF0126700181C78 /* ChatPhotoCell.h */,
 				540649B51EF0126700181C78 /* ChatPhotoCell.m */,
+				540649F11EF0E91A00181C78 /* ChatVoiceCell.h */,
+				540649F21EF0E91A00181C78 /* ChatVoiceCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +295,9 @@
 				5460D43B1EEFE2AC00448ED3 /* mayun.jpg */,
 				5460D4381EEFDCEF00448ED3 /* UIView+Extension.h */,
 				5460D4391EEFDCEF00448ED3 /* UIView+Extension.m */,
+				540649EE1EF0DA2C00181C78 /* IMMessageAnalysis.h */,
+				540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */,
+				54064A181EF12E8100181C78 /* ChatConst.h */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -595,8 +607,10 @@
 				5460D3DC1EEFCBC100448ED3 /* main.m in Sources */,
 				5460D42C1EEFD25D00448ED3 /* ChatViewController.m in Sources */,
 				5460D4331EEFDA2200448ED3 /* ConversationTableViewCell.m in Sources */,
+				540649F31EF0E91A00181C78 /* ChatVoiceCell.m in Sources */,
 				5460D42D1EEFD25D00448ED3 /* MessageListViewController.m in Sources */,
 				5460D4181EEFCD1E00448ED3 /* BaseNavViewController.m in Sources */,
+				540649F01EF0DA2C00181C78 /* IMMessageAnalysis.m in Sources */,
 				5460D4301EEFD36E00448ED3 /* ConversationModel.m in Sources */,
 				5460D43F1EEFE99200448ED3 /* MessageModel.m in Sources */,
 			);
