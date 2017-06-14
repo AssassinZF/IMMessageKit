@@ -25,6 +25,7 @@
     CGFloat arrowWidth    = 7;      // 气泡箭头
     CGFloat dateLabel_H = 20;//时间高度
     CGFloat nickLabel_H = 25;//昵称高度
+    CGFloat cellMin_w = 60;
     
     BOOL isSender = messageItem.messageFrom == MessageFrom_output;//是发送者还是接受者
     
@@ -54,13 +55,25 @@
             
             CGFloat bubble_y = messageItem.isShowNickName?CGRectGetMaxY(_nickNameF):_avatarViewF.origin.y;
             
-            _bubbleViewF = CGRectMake(bubble_x,bubble_y , bubbleSize.width, MAX(bubbleSize.height, _avatarViewF.size.height));
+            _bubbleViewF = CGRectMake(bubble_x,bubble_y , MAX(bubbleSize.width, cellMin_w), MAX(bubbleSize.height, _avatarViewF.size.height));
+            
+            CGFloat text_x = isSender?bubblePadding:bubblePadding+arrowWidth;
+            
+            _textContentF = CGRectMake(text_x, bubblePadding, chateLabelSize.width, chateLabelSize.height);
 
+        }break;
+        case MessageType_Image:{
+            
+        }break;
+        case MessageType_Voice:{
+            
         }break;
             
         default:
             break;
     }
+    
+    _cellMax_H = MAX(CGRectGetMaxY(_avatarViewF)+left, CGRectGetMaxY(_bubbleViewF)+left);
     
 }
 

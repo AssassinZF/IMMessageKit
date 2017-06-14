@@ -13,12 +13,15 @@
 #import "ChatPhotoCell.h"
 #import "MessageModel.h"
 #import "IMMessageAnalysis.h"
+#import "ZFKeyboardInputView.h"
 
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong)UITableView *tableview;
 @property (nonatomic, strong)NSMutableArray *dataArray;
+
+@property (nonatomic, strong)ZFKeyboardInputView *keyboardView;
 
 
 @end
@@ -40,7 +43,22 @@
 -(void)configureUI{
     
     [self.view addSubview:self.tableview];
+    [self.view addSubview:self.keyboardView];
+    [self layoutUI];
     [self registerCell];
+}
+
+-(void)layoutUI{
+    
+    [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.and.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-HEIGHT_TABBAR);
+    }];
+    [_keyboardView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_tableview.mas_bottom);
+        make.left.right.equalTo(self.view);
+        make.height.equalTo(@(HEIGHT_TABBAR));
+    }];
 }
 
 - (void)registerCell
@@ -68,7 +86,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    MessageModel *model = self.dataArray[indexPath.row];
+    return model.cellMax_H;
 }
 
 #pragma mark ------------------------- Getr
@@ -80,10 +99,6 @@
         _tableview.delegate = self;
         _tableview.dataSource = self;
         _tableview.tableFooterView = [UIView new];
-        [self.view addSubview:_tableview];
-        [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
-        }];
         
     }
     return _tableview;
@@ -94,6 +109,13 @@
         _dataArray = @[].mutableCopy;
     }
     return _dataArray;
+}
+
+-(ZFKeyboardInputView *)keyboardView{
+    if (!_keyboardView) {
+        _keyboardView = [[ZFKeyboardInputView alloc] initWithKeyboardType:ZFKeyboardTypeChat];
+    }
+    return _keyboardView;
 }
 
 #pragma mark ------------------------- Private Method
@@ -110,13 +132,13 @@
 #pragma mark ------------------------- 假数据 
 -(void)loadData{
     MessageModel *message1 = [IMMessageAnalysis CreatMessageWithType:MessageType_Text
-                                    content:@"在吗?"
+                                    content:@"在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?"
                                    filePath:nil
                                      fromID:@"1"
                                        toID:@"2"
                                 messageFrom:MessageFrom_output];
     MessageModel *message2 = [IMMessageAnalysis CreatMessageWithType:MessageType_Text
-                                    content:@"在吗?"
+                                    content:@"在吗在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?在吗?"
                                    filePath:nil
                                      fromID:@"1"
                                        toID:@"2"

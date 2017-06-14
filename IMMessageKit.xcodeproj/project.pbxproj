@@ -13,6 +13,7 @@
 		540649B61EF0126700181C78 /* ChatPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649B51EF0126700181C78 /* ChatPhotoCell.m */; };
 		540649F01EF0DA2C00181C78 /* IMMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */; };
 		540649F31EF0E91A00181C78 /* ChatVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649F21EF0E91A00181C78 /* ChatVoiceCell.m */; };
+		54064A3A1EF1502C00181C78 /* ZFKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */; };
 		54072ECC1EF0038600F42DC6 /* BaseChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */; };
 		5460D3DC1EEFCBC100448ED3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DB1EEFCBC100448ED3 /* main.m */; };
 		5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */; };
@@ -66,6 +67,8 @@
 		540649F11EF0E91A00181C78 /* ChatVoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatVoiceCell.h; sourceTree = "<group>"; };
 		540649F21EF0E91A00181C78 /* ChatVoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatVoiceCell.m; sourceTree = "<group>"; };
 		54064A181EF12E8100181C78 /* ChatConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatConst.h; sourceTree = "<group>"; };
+		54064A381EF1502C00181C78 /* ZFKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFKeyboardInputView.h; sourceTree = "<group>"; };
+		54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFKeyboardInputView.m; sourceTree = "<group>"; };
 		54072ECA1EF0038600F42DC6 /* BaseChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChatTableViewCell.h; sourceTree = "<group>"; };
 		54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChatTableViewCell.m; sourceTree = "<group>"; };
 		5460D3D71EEFCBC100448ED3 /* IMMessageKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMMessageKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +235,8 @@
 		5460D41D1EEFD0D300448ED3 /* ChatKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				54064A381EF1502C00181C78 /* ZFKeyboardInputView.h */,
+				54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */,
 			);
 			path = ChatKeyboard;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				540649B31EF00F8C00181C78 /* ChatTextCell.m in Sources */,
 				54072ECC1EF0038600F42DC6 /* BaseChatTableViewCell.m in Sources */,
 				5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */,
+				54064A3A1EF1502C00181C78 /* ZFKeyboardInputView.m in Sources */,
 				5460D3DC1EEFCBC100448ED3 /* main.m in Sources */,
 				5460D42C1EEFD25D00448ED3 /* ChatViewController.m in Sources */,
 				5460D4331EEFDA2200448ED3 /* ConversationTableViewCell.m in Sources */,

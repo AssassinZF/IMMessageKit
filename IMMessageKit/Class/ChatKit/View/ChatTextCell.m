@@ -27,7 +27,9 @@
 
 -(void)setModelFrame:(MessageModel *)modelFrame{
     [super setModelFrame:modelFrame];
+    self.contentLabel.frame = modelFrame.textContentF;
     self.contentLabel.text = modelFrame.messageItem.content;
+    
     
 }
 

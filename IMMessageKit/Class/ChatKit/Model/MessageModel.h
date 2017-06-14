@@ -22,6 +22,7 @@
 @property (nonatomic, assign, readonly) CGRect dateLabelF;//发送时间label
 @property (nonatomic, assign, readonly) CGRect nickNameF;//昵称位置
 
+@property (nonatomic, assign ,readonly)CGFloat cellMax_H;//cell的总高度
 
 
 @end
