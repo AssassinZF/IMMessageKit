@@ -9,20 +9,50 @@
 #import <UIKit/UIKit.h>
 
 #define HEIGHT_TABBAR 49
+#define POP_H 215
 #define CHATBOX_BUTTON_WIDTH 37
 #define HEIGHT_TEXTVIEW HEIGHT_TABBAR * 0.74
 #define SPACE 6
 #define TEXTVIEW_BOTTPN_SPACE HEIGHT_TABBAR * 0.13
+#define TEXT_LENGTH 5000 //文本限制最大长度
 
-
+typedef NS_ENUM(NSInteger, ZFKeyboardStatus) {
+    ZFKeyboardStatusNothing,     // 默认状态
+    ZFKeyboardStatusShowVoice,   // 录音状态
+    ZFKeyboardStatusShowFace,    // 输入表情状态
+    ZFKeyboardStatusShowMore,    // 显示“更多”页面状态
+    ZFKeyboardStatushowKeyboard,// 正常键盘
+    ZFKeyboardStatusShowVideo    // 录制视频
+};
 
 typedef NS_ENUM(NSInteger,ZFKeyboardType) {
     ZFKeyboardTypeChat,//聊天使用
     ZFKeyboardTypeComment//评论使用
 };
 
+@class ZFKeyboardInputView;
+
+@protocol ZFKeyboardInputViewDelegate <NSObject>
+
+@required
+-(void)changeKeyboardHeight:(ZFKeyboardInputView *)keyboardView valueH:(CGFloat)keyboardH;
+@end
+
+
 
 @interface ZFKeyboardInputView : UIView
-@property (nonatomic, assign ,readonly)ZFKeyboardType keyboardType;
+
+@property (nonatomic, assign)id<ZFKeyboardInputViewDelegate>keyboardDelegate;
+
+@property (nonatomic, assign ,readonly)ZFKeyboardType keyboardType;//键盘类型
+@property (nonatomic, assign ,readonly)ZFKeyboardStatus keyboardStatus;//键盘状态
+
+
+/**
+ 初始化方法
+
+ @param keboardType 键盘类型 聊天 || 评论
+ @return self
+ */
 -(instancetype)initWithKeyboardType:(ZFKeyboardType)keboardType;
 @end

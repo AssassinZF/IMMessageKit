@@ -8,9 +8,14 @@
 
 #import "ZFKeyboardInputView.h"
 
-@interface ZFKeyboardInputView()<UITextViewDelegate>
 
-@property (nonatomic ,assign ,readwrite)ZFKeyboardType keyboardType;
+@interface ZFKeyboardInputView()<UITextViewDelegate>
+{
+    CGFloat Keyboard_H;//当前键盘的高度
+}
+
+@property (nonatomic, assign ,readwrite)ZFKeyboardStatus keyboardStatus;//键盘状态
+
 
 /** chotBox的顶部边线 */
 @property (nonatomic, strong) UIView *topLine;
@@ -25,7 +30,6 @@
 /** 输入框 */
 @property (nonatomic, strong) UITextView *textView;
 
-
 @end
 
 @implementation ZFKeyboardInputView
@@ -33,7 +37,8 @@
 -(instancetype)initWithKeyboardType:(ZFKeyboardType)keboardType{
     self = [super init];
     if (self) {
-        _keyboardType = keboardType;
+        _keyboardType = keboardType;//键盘类型
+        _keyboardStatus = ZFKeyboardStatusNothing;//默认状态
         
         self.backgroundColor = [UIColor purpleColor];
         
@@ -43,6 +48,8 @@
         [self addSubview:self.faceButton];
         [self addSubview:self.moreButton];
         [self addSubview:self.talkButton];
+        
+        [self addNotification];//监听通知
         
         [self layoutUI];
     }
@@ -116,7 +123,8 @@
     if (_voiceButton == nil) {
         _voiceButton = [[UIButton alloc] init];
         [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateHighlighted];
+        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+//        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoiceHL"] forState:UIControlStateHighlighted];
         [_voiceButton addTarget:self action:@selector(voiceButtonDown:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _voiceButton;
@@ -138,7 +146,8 @@
     if (_faceButton == nil) {
         _faceButton = [[UIButton alloc] init];
         [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
-        [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotionHL"] forState:UIControlStateHighlighted];
+        [_faceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+//        [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotionHL"] forState:UIControlStateHighlighted];
         [_faceButton addTarget:self action:@selector(faceButtonDown:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _faceButton;
@@ -188,15 +197,14 @@
 
 - (void) textViewDidBeginEditing:(UITextView *)textView
 {
-    //    ICChatBoxStatus lastStatus = self.status;
-//    self.status = ICChatBoxStatusShowKeyboard;
+    self.keyboardStatus = ZFKeyboardStatushowKeyboard;
 }
 
 - (void) textViewDidChange:(UITextView *)textView
 {
     //    CGFloat height = [textView sizeThatFits:CGSizeMake(self.textView.width, MAXFLOAT)].height;
-    if (textView.text.length > 5000) { // 限制5000字内
-        textView.text = [textView.text substringToIndex:5000];
+    if (textView.text.length > TEXT_LENGTH) { // 限制5000字内
+        textView.text = [textView.text substringToIndex:TEXT_LENGTH];
     }
 }
 
@@ -222,89 +230,32 @@
 // 录音按钮点击事件
 - (void) voiceButtonDown:(UIButton *)sender
 {
-//    ICChatBoxStatus lastStatus = self.status;
-//    if (lastStatus == ICChatBoxStatusShowVoice) {//正在显示talkButton，改为键盘状态
-//        self.status = ICChatBoxStatusShowKeyboard;
-//        [self.talkButton setHidden:YES];
-//        [self.textView setHidden:NO];
-//        [self.textView becomeFirstResponder];
-//        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//    } else {    // 变成talkButton的状态
-//        self.status = ICChatBoxStatusShowVoice;
-//        [self.textView resignFirstResponder];
-//        [self.textView setHidden:YES];
-//        [self.talkButton setHidden:NO];
-//        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
-//    }
-//    if (_delegate && [_delegate respondsToSelector:@selector(chatBox:changeStatusForm:to:)]) {
-//        [_delegate chatBox:self changeStatusForm:lastStatus to:self.status];
-//    }
+    if (sender.selected) {
+        [self.textView becomeFirstResponder];
+        self.keyboardStatus = ZFKeyboardStatushowKeyboard;
+    }else{
+        self.keyboardStatus = ZFKeyboardStatusShowVoice;
+
+    }
+    
 }
 
 // 更多（+）按钮
 - (void) moreButtonDown:(UIButton *)sender
 {
-//    ICChatBoxStatus lastStatus = self.status;
-//    if (lastStatus == ICChatBoxStatusShowMore) { // 当前显示的就是more页面
-//        self.status = ICChatBoxStatusShowKeyboard;
-//        [self.textView becomeFirstResponder];
-//    } else {
-//        [self.talkButton setHidden:YES];
-//        [self.textView setHidden:NO];
-//        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//        
-//        self.status = ICChatBoxStatusShowMore;
-//        if (lastStatus == ICChatBoxStatusShowFace) {  // 改变按钮样式
-//            [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
-//        } else if (lastStatus == ICChatBoxStatusShowVoice) {
-//            [_talkButton setHidden:YES];
-//            [_textView setHidden:NO];
-//            [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//        } else if (lastStatus == ICChatBoxStatusShowKeyboard) {
-//            [self.textView resignFirstResponder];
-//            self.status = ICChatBoxStatusShowMore;
-//        }
-//    }
-//    if (_delegate && [_delegate respondsToSelector:@selector(chatBox:changeStatusForm:to:)]) {
-//        [_delegate chatBox:self changeStatusForm:lastStatus to:self.status];
-//    }
+    self.keyboardStatus = ZFKeyboardStatusShowMore;
 }
 
 // 表情按钮
 - (void) faceButtonDown:(UIButton *)sender
 {
-//    ICChatBoxStatus lastStatus = self.status;
-//    if (lastStatus == ICChatBoxStatusShowFace) {       // 正在显示表情,改为现实键盘状态
-//        self.status = ICChatBoxStatusShowKeyboard;
-//        [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
-//        [self.textView becomeFirstResponder];
-//    } else {
-//        [self.talkButton setHidden:YES];
-//        [self.textView setHidden:NO];
-//        [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//        self.status = ICChatBoxStatusShowFace;
-//        [_faceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
-//        if (lastStatus == ICChatBoxStatusShowMore) {
-//        } else if (lastStatus == ICChatBoxStatusShowVoice) {
-//            [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//            [_talkButton setHidden:YES];
-//            [_textView setHidden:NO];
-//        }  else if (lastStatus == ICChatBoxStatusShowKeyboard) {
-//            [self.textView resignFirstResponder];
-//            self.status = ICChatBoxStatusShowFace;
-//        } else if (lastStatus == ICChatBoxStatusShowVoice) {
-//            [self.talkButton setHidden:YES];
-//            [self.textView setHidden:NO];
-//            [_voiceButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-//            self.status         = ICChatBoxStatusShowFace;
-//        }
-//        
-//    }
-//    if (_delegate && [_delegate respondsToSelector:@selector(chatBox:changeStatusForm:to:)]) {
-//        [_delegate chatBox:self changeStatusForm:lastStatus to:self.status];
-//    }
-    
-    
+    if (sender.selected) {
+        [self.textView becomeFirstResponder];
+        self.keyboardStatus = ZFKeyboardStatushowKeyboard;
+    }else{
+        self.keyboardStatus = ZFKeyboardStatusShowFace;
+    }
+
 }
 
 // 说话按钮
@@ -345,6 +296,102 @@
 
 - (void)talkButtonTouchCancel:(UIButton *)sender
 {
+}
+
+#pragma mark ------------------------- 添加通知
+
+-(void)addNotification{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardDidChangeFrameNotification object:nil];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:LXEmotionDidSelectNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteBtnClicked) name:LXEmotionDidDeleteNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMessage) name:LXEmotionDidSendNotification object:nil];
+}
+
+-(void)removeNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+-(void)keyboardWillChangeFrame:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    // 动画的持续时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    NSLog(@"%f",duration);
+    // 键盘的frame
+    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    Keyboard_H = keyboardF.size.height;
+    
+//    self.keyboardStatus = ZFKeyboardStatushowKeyboard;
+    
+
+}
+
+-(void)keyboardDidChangeFrame:(NSNotification *)notification{
+    
+
+}
+
+#pragma mark ------------------------- 刷新键盘状态
+-(void)setKeyboardStatus:(ZFKeyboardStatus)keyboardStatus{
+    _keyboardStatus = keyboardStatus;
+    CGFloat totalH = self.height;
+    switch (_keyboardStatus) {
+        case ZFKeyboardStatusNothing:{
+            if (self.textView.isFirstResponder) {
+                [self.textView resignFirstResponder];
+            }
+            _voiceButton.selected = _textView.hidden = _faceButton.selected = NO;
+            _talkButton.hidden = YES;
+        }break;
+        case ZFKeyboardStatushowKeyboard:{
+            _talkButton.hidden = YES;
+            _voiceButton.selected = NO;
+            _faceButton.selected = NO;
+            _textView.hidden = NO;
+            totalH += Keyboard_H;
+        }break;
+        case ZFKeyboardStatusShowFace:{
+            _talkButton.hidden = YES;
+            _textView.hidden = NO;
+            _voiceButton.selected = NO;
+            _faceButton.selected = YES;
+            totalH += POP_H;
+        }break;
+        case ZFKeyboardStatusShowMore:{
+            _talkButton.hidden = YES;
+            _textView.hidden = NO;
+            _voiceButton.selected = NO;
+            _faceButton.selected = NO;
+            totalH += POP_H;
+
+        }break;
+        case ZFKeyboardStatusShowVoice:{
+            _talkButton.hidden = NO;
+            _textView.hidden = YES;
+            _voiceButton.selected = YES;
+            _faceButton.selected = NO;
+            totalH = HEIGHT_TABBAR;
+        }break;
+            
+        default:
+            break;
+    }
+    
+    if (_keyboardStatus == ZFKeyboardStatushowKeyboard && !self.textView.isFirstResponder) {
+        [self.textView becomeFirstResponder];
+    }
+    
+    if (_keyboardStatus != ZFKeyboardStatushowKeyboard) {
+        [self.textView resignFirstResponder];
+    }
+    
+    if ([self.keyboardDelegate respondsToSelector:@selector(changeKeyboardHeight:valueH:)]) {
+        [self.keyboardDelegate changeKeyboardHeight:self valueH:totalH];
+    }
+    
 }
 
 

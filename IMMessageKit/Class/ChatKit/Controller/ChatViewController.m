@@ -16,7 +16,7 @@
 #import "ZFKeyboardInputView.h"
 
 
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ZFKeyboardInputViewDelegate>
 
 @property (nonatomic, strong)UITableView *tableview;
 @property (nonatomic, strong)NSMutableArray *dataArray;
@@ -111,9 +111,11 @@
     return _dataArray;
 }
 
+//键盘组件
 -(ZFKeyboardInputView *)keyboardView{
     if (!_keyboardView) {
         _keyboardView = [[ZFKeyboardInputView alloc] initWithKeyboardType:ZFKeyboardTypeChat];
+        _keyboardView.keyboardDelegate = self;
     }
     return _keyboardView;
 }
@@ -150,6 +152,18 @@
     [self.tableview reloadData];
     [self scrollToBottom];
 
+}
+
+#pragma mark ------------------------- 键盘输入框协议方法
+
+-(void)changeKeyboardHeight:(ZFKeyboardInputView *)keyboardView valueH:(CGFloat)keyboardH{
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.25 animations:^{
+       [self.tableview mas_updateConstraints:^(MASConstraintMaker *make) {
+           make.bottom.equalTo(self.view).offset(-keyboardH);
+       }];
+        [self.view layoutIfNeeded];
+    }];
 }
 
 
