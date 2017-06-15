@@ -90,6 +90,10 @@
     return model.cellMax_H;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.keyboardViewController resetKeyboard];
+}
+
 #pragma mark ------------------------- Getr
 
 -(UITableView *)tableview{

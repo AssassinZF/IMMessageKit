@@ -166,9 +166,18 @@
         [vc.tableview mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(vc.view).offset(-Keyboard_H-self.keyboardInputView.height);
         }];
+        
+        CGRect fram = CGRectMake(0, self.keyboardInputView.height, self.view.width, self.faceView.height);
+        self.faceView.frame = self.moreView.frame = fram;
+        
         [vc.view layoutIfNeeded];
+        
     }];
 
+}
+
+-(void)resetKeyboard{
+    [self.keyboardInputView resetKeyboard];
 }
 
 //-(void)presentViewWithAnimation:(UIView *)tagerView{

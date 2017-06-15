@@ -60,6 +60,8 @@ typedef NS_ENUM(NSInteger,ZFKeyboardType) {
 
 @property (nonatomic, assign) NSInteger maxTextLine;//最大显示行数 default 5 line
 
+-(void)resetKeyboard;//reset
+
 
 /**
  初始化方法

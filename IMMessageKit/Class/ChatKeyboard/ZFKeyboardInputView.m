@@ -10,6 +10,10 @@
 
 
 @interface ZFKeyboardInputView()<UITextViewDelegate>
+{
+    CGFloat currentH;//当前总高度
+    
+}
 
 @property (nonatomic, assign ,readwrite)ZFKeyboardStatus keyboardStatus;//键盘状态
 
@@ -34,10 +38,11 @@
 -(instancetype)initWithKeyboardType:(ZFKeyboardType)keboardType{
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor purpleColor];
         _keyboardType = keboardType;//键盘类型
         _keyboardStatus = ZFKeyboardStatusNothing;//默认状态
         _maxTextLine = 5;//默认最多显示5行
+        currentH = HEIGHT_TABBAR;
         
         [self addSubview:self.topLine];
         [self addSubview:self.voiceButton];
@@ -204,12 +209,18 @@
     CGFloat maxH = ceil(_maxTextLine*textView.font.lineHeight+textView.textContainerInset.top*2);
 
     if (height > HEIGHT_TEXTVIEW) {
+        
+        currentH = MIN(maxH, height);
+
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(MIN(maxH, height)));
+            make.height.equalTo(@(currentH));
         }];
+        
+        [self.textView scrollToBottom];
+
     }
     
-    [self layoutIfNeeded];
+    
     
     if ([self.keyboardDelegate respondsToSelector:@selector(changeKeyboardHeight:currentH:)]) {
         [self.keyboardDelegate changeKeyboardHeight:self currentH:self.height];
@@ -247,9 +258,11 @@
 - (void) voiceButtonDown:(UIButton *)sender
 {
     if (sender.selected) {
-        [self.textView becomeFirstResponder];
         self.keyboardStatus = ZFKeyboardStatushowKeyboard;
     }else{
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(HEIGHT_TABBAR));
+        }];
         self.keyboardStatus = ZFKeyboardStatusShowVoice;
 
     }
@@ -266,7 +279,6 @@
 - (void) faceButtonDown:(UIButton *)sender
 {
     if (sender.selected) {
-        [self.textView becomeFirstResponder];
         self.keyboardStatus = ZFKeyboardStatushowKeyboard;
     }else{
         self.keyboardStatus = ZFKeyboardStatusShowFace;
@@ -356,8 +368,16 @@
             break;
     }
     
-    if (_keyboardStatus == ZFKeyboardStatushowKeyboard && !self.textView.isFirstResponder) {
-        [self.textView becomeFirstResponder];
+    if (_keyboardStatus != ZFKeyboardStatusShowVoice) {
+        
+        if (_keyboardStatus == ZFKeyboardStatushowKeyboard && !self.textView.isFirstResponder) {
+            [self.textView becomeFirstResponder];
+        }
+        
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(currentH));
+        }];
+
     }
     
     if (_keyboardStatus != ZFKeyboardStatushowKeyboard) {
@@ -370,5 +390,10 @@
     
 }
 
+-(void)resetKeyboard{
+    if (self.keyboardStatus != ZFKeyboardStatusShowVoice) {
+        self.keyboardStatus = ZFKeyboardStatusNothing;
+    }
+}
 
 @end

@@ -10,5 +10,5 @@
 #import "ZFKeyboardInputView.h"
 
 @interface ZFKeyboardViewController : UIViewController
-
+-(void)resetKeyboard;//重置键盘
 @end
