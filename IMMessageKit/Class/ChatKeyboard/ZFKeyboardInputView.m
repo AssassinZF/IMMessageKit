@@ -10,9 +10,6 @@
 
 
 @interface ZFKeyboardInputView()<UITextViewDelegate>
-{
-    CGFloat Keyboard_H;//当前键盘的高度
-}
 
 @property (nonatomic, assign ,readwrite)ZFKeyboardStatus keyboardStatus;//键盘状态
 
@@ -37,10 +34,10 @@
 -(instancetype)initWithKeyboardType:(ZFKeyboardType)keboardType{
     self = [super init];
     if (self) {
+        self.backgroundColor = [UIColor redColor];
         _keyboardType = keboardType;//键盘类型
         _keyboardStatus = ZFKeyboardStatusNothing;//默认状态
-        
-        self.backgroundColor = [UIColor purpleColor];
+        _maxTextLine = 5;//默认最多显示5行
         
         [self addSubview:self.topLine];
         [self addSubview:self.voiceButton];
@@ -49,7 +46,6 @@
         [self addSubview:self.moreButton];
         [self addSubview:self.talkButton];
         
-        [self addNotification];//监听通知
         
         [self layoutUI];
     }
@@ -79,11 +75,11 @@
         make.size.mas_equalTo(CGSizeMake(CHATBOX_BUTTON_WIDTH, CHATBOX_BUTTON_WIDTH));
     }];
     
-    [_talkButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self).offset(-TEXTVIEW_BOTTPN_SPACE);
         make.left.equalTo(_voiceButton.mas_right).offset(SPACE);
-        make.height.equalTo(@(HEIGHT_TEXTVIEW));
         make.right.equalTo(_faceButton.mas_left).offset(-SPACE);
+        make.top.equalTo(self).offset(TEXTVIEW_BOTTPN_SPACE);
     }];
     
     [_faceButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,14 +94,13 @@
         make.size.mas_equalTo(CGSizeMake(CHATBOX_BUTTON_WIDTH, CHATBOX_BUTTON_WIDTH));
     }];
     
-    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(_talkButton);
+    [_talkButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(_textView);
         make.height.equalTo(@(HEIGHT_TEXTVIEW));
     }];
     
-    
-    
 }
+
 
 #pragma mark - Getter and Setter
 
@@ -193,6 +188,8 @@
     return _talkButton;
 }
 
+
+
 #pragma mark - UITextViewDelegate
 
 - (void) textViewDidBeginEditing:(UITextView *)textView
@@ -200,9 +197,25 @@
     self.keyboardStatus = ZFKeyboardStatushowKeyboard;
 }
 
-- (void) textViewDidChange:(UITextView *)textView
+- (void)textViewDidChange:(UITextView *)textView
 {
-    //    CGFloat height = [textView sizeThatFits:CGSizeMake(self.textView.width, MAXFLOAT)].height;
+    CGFloat height = ceilf([textView sizeThatFits:textView.frame.size].height);
+    
+    CGFloat maxH = ceil(_maxTextLine*textView.font.lineHeight+textView.textContainerInset.top*2);
+
+    if (height > HEIGHT_TEXTVIEW) {
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(MIN(maxH, height)));
+        }];
+    }
+    
+    [self layoutIfNeeded];
+    
+    if ([self.keyboardDelegate respondsToSelector:@selector(changeKeyboardHeight:currentH:)]) {
+        [self.keyboardDelegate changeKeyboardHeight:self currentH:self.height];
+    }
+
+    
     if (textView.text.length > TEXT_LENGTH) { // 限制5000字内
         textView.text = [textView.text substringToIndex:TEXT_LENGTH];
     }
@@ -224,6 +237,9 @@
     }
     return YES;
 }
+
+
+
 
 #pragma mark - Event Response
 
@@ -298,46 +314,10 @@
 {
 }
 
-#pragma mark ------------------------- 添加通知
-
--(void)addNotification{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardDidChangeFrameNotification object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:LXEmotionDidSelectNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteBtnClicked) name:LXEmotionDidDeleteNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMessage) name:LXEmotionDidSendNotification object:nil];
-}
-
--(void)removeNotification{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-
--(void)keyboardWillChangeFrame:(NSNotification *)notification{
-    NSDictionary *userInfo = notification.userInfo;
-    // 动画的持续时间
-    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    NSLog(@"%f",duration);
-    // 键盘的frame
-    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    Keyboard_H = keyboardF.size.height;
-    
-//    self.keyboardStatus = ZFKeyboardStatushowKeyboard;
-    
-
-}
-
--(void)keyboardDidChangeFrame:(NSNotification *)notification{
-    
-
-}
 
 #pragma mark ------------------------- 刷新键盘状态
 -(void)setKeyboardStatus:(ZFKeyboardStatus)keyboardStatus{
     _keyboardStatus = keyboardStatus;
-    CGFloat totalH = self.height;
     switch (_keyboardStatus) {
         case ZFKeyboardStatusNothing:{
             if (self.textView.isFirstResponder) {
@@ -351,21 +331,18 @@
             _voiceButton.selected = NO;
             _faceButton.selected = NO;
             _textView.hidden = NO;
-            totalH += Keyboard_H;
         }break;
         case ZFKeyboardStatusShowFace:{
             _talkButton.hidden = YES;
             _textView.hidden = NO;
             _voiceButton.selected = NO;
             _faceButton.selected = YES;
-            totalH += POP_H;
         }break;
         case ZFKeyboardStatusShowMore:{
             _talkButton.hidden = YES;
             _textView.hidden = NO;
             _voiceButton.selected = NO;
             _faceButton.selected = NO;
-            totalH += POP_H;
 
         }break;
         case ZFKeyboardStatusShowVoice:{
@@ -373,7 +350,6 @@
             _textView.hidden = YES;
             _voiceButton.selected = YES;
             _faceButton.selected = NO;
-            totalH = HEIGHT_TABBAR;
         }break;
             
         default:
@@ -388,12 +364,11 @@
         [self.textView resignFirstResponder];
     }
     
-    if ([self.keyboardDelegate respondsToSelector:@selector(changeKeyboardHeight:valueH:)]) {
-        [self.keyboardDelegate changeKeyboardHeight:self valueH:totalH];
+    if ([self.keyboardDelegate respondsToSelector:@selector(changeKeyboardHeight:currentH:)]) {
+        [self.keyboardDelegate changeKeyboardHeight:self currentH:self.height];
     }
     
 }
-
 
 
 @end

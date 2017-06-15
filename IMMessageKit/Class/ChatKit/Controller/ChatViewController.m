@@ -13,15 +13,13 @@
 #import "ChatPhotoCell.h"
 #import "MessageModel.h"
 #import "IMMessageAnalysis.h"
-#import "ZFKeyboardInputView.h"
+#import "ZFKeyboardViewController.h"
 
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ZFKeyboardInputViewDelegate>
-
-@property (nonatomic, strong)UITableView *tableview;
 @property (nonatomic, strong)NSMutableArray *dataArray;
 
-@property (nonatomic, strong)ZFKeyboardInputView *keyboardView;
+@property (nonatomic, strong)ZFKeyboardViewController *keyboardViewController;//键盘管理
 
 
 @end
@@ -43,7 +41,9 @@
 -(void)configureUI{
     
     [self.view addSubview:self.tableview];
-    [self.view addSubview:self.keyboardView];
+    [self addChildViewController:self.keyboardViewController];
+    [self.view addSubview:self.keyboardViewController.view];
+
     [self layoutUI];
     [self registerCell];
 }
@@ -54,10 +54,10 @@
         make.top.left.and.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-HEIGHT_TABBAR);
     }];
-    [_keyboardView mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.keyboardViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_tableview.mas_bottom);
-        make.left.right.equalTo(self.view);
-        make.height.equalTo(@(HEIGHT_TABBAR));
+        make.left.right.and.bottom.equalTo(self.view);
     }];
 }
 
@@ -111,13 +111,11 @@
     return _dataArray;
 }
 
-//键盘组件
--(ZFKeyboardInputView *)keyboardView{
-    if (!_keyboardView) {
-        _keyboardView = [[ZFKeyboardInputView alloc] initWithKeyboardType:ZFKeyboardTypeChat];
-        _keyboardView.keyboardDelegate = self;
+-(ZFKeyboardViewController *)keyboardViewController{
+    if (!_keyboardViewController) {
+        _keyboardViewController = [[ZFKeyboardViewController alloc] init];
     }
-    return _keyboardView;
+    return _keyboardViewController;
 }
 
 #pragma mark ------------------------- Private Method
@@ -154,17 +152,6 @@
 
 }
 
-#pragma mark ------------------------- 键盘输入框协议方法
-
--(void)changeKeyboardHeight:(ZFKeyboardInputView *)keyboardView valueH:(CGFloat)keyboardH{
-    [self.view layoutIfNeeded];
-    [UIView animateWithDuration:0.25 animations:^{
-       [self.tableview mas_updateConstraints:^(MASConstraintMaker *make) {
-           make.bottom.equalTo(self.view).offset(-keyboardH);
-       }];
-        [self.view layoutIfNeeded];
-    }];
-}
 
 
 @end

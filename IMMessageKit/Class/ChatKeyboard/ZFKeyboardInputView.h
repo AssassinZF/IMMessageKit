@@ -35,7 +35,18 @@ typedef NS_ENUM(NSInteger,ZFKeyboardType) {
 @protocol ZFKeyboardInputViewDelegate <NSObject>
 
 @required
--(void)changeKeyboardHeight:(ZFKeyboardInputView *)keyboardView valueH:(CGFloat)keyboardH;
+
+/**
+ 返回当前的状态以及自身的高度
+
+ @param keyboardView self
+ @param currentH totalHeight
+ */
+-(void)changeKeyboardHeight:(ZFKeyboardInputView *)keyboardView currentH:(CGFloat)currentH;
+
+//发送文本消息
+-(void)sendTextMessage:(NSString *)textMessage;
+
 @end
 
 
@@ -46,6 +57,8 @@ typedef NS_ENUM(NSInteger,ZFKeyboardType) {
 
 @property (nonatomic, assign ,readonly)ZFKeyboardType keyboardType;//键盘类型
 @property (nonatomic, assign ,readonly)ZFKeyboardStatus keyboardStatus;//键盘状态
+
+@property (nonatomic, assign) NSInteger maxTextLine;//最大显示行数 default 5 line
 
 
 /**

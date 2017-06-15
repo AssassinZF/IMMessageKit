@@ -14,6 +14,22 @@
 		540649F01EF0DA2C00181C78 /* IMMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */; };
 		540649F31EF0E91A00181C78 /* ChatVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 540649F21EF0E91A00181C78 /* ChatVoiceCell.m */; };
 		54064A3A1EF1502C00181C78 /* ZFKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */; };
+		54064A491EF262A600181C78 /* LXChatBoxFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A431EF262A600181C78 /* LXChatBoxFaceView.m */; };
+		54064A4A1EF262A600181C78 /* LXChatBoxMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A461EF262A600181C78 /* LXChatBoxMoreView.m */; };
+		54064A4B1EF262A600181C78 /* LXChatBoxMoreViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A481EF262A600181C78 /* LXChatBoxMoreViewItem.m */; };
+		54064A4E1EF2630500181C78 /* LXEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A4D1EF2630500181C78 /* LXEmotionListView.m */; };
+		54064A511EF2631C00181C78 /* LXChatBoxMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A501EF2631C00181C78 /* LXChatBoxMenuView.m */; };
+		54064A571EF2636A00181C78 /* LXEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A561EF2636A00181C78 /* LXEmotionPageView.m */; };
+		54064A5A1EF2638B00181C78 /* LXEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A591EF2638B00181C78 /* LXEmotion.m */; };
+		54064A5D1EF263A700181C78 /* LXEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A5C1EF263A700181C78 /* LXEmotionButton.m */; };
+		54064A601EF263E300181C78 /* LXEmotionMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A5F1EF263E300181C78 /* LXEmotionMenuButton.m */; };
+		54064A651EF2642A00181C78 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A621EF2642A00181C78 /* NSString+Extension.m */; };
+		54064A661EF2642A00181C78 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A641EF2642A00181C78 /* UIImage+Extension.m */; };
+		54064A691EF2653F00181C78 /* LXChatBoxConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A681EF2653F00181C78 /* LXChatBoxConst.m */; };
+		54064A6C1EF2666B00181C78 /* LXEmotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A6B1EF2666B00181C78 /* LXEmotionManager.m */; };
+		54064A701EF2676C00181C78 /* emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54064A6E1EF2676C00181C78 /* emoji.plist */; };
+		54064A711EF2676C00181C78 /* normal_face.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54064A6F1EF2676C00181C78 /* normal_face.plist */; };
+		54064A741EF2794900181C78 /* ZFKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54064A731EF2794900181C78 /* ZFKeyboardViewController.m */; };
 		54072ECC1EF0038600F42DC6 /* BaseChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */; };
 		5460D3DC1EEFCBC100448ED3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DB1EEFCBC100448ED3 /* main.m */; };
 		5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460D3DE1EEFCBC100448ED3 /* AppDelegate.m */; };
@@ -69,6 +85,36 @@
 		54064A181EF12E8100181C78 /* ChatConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatConst.h; sourceTree = "<group>"; };
 		54064A381EF1502C00181C78 /* ZFKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFKeyboardInputView.h; sourceTree = "<group>"; };
 		54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFKeyboardInputView.m; sourceTree = "<group>"; };
+		54064A421EF262A600181C78 /* LXChatBoxFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXChatBoxFaceView.h; sourceTree = "<group>"; };
+		54064A431EF262A600181C78 /* LXChatBoxFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXChatBoxFaceView.m; sourceTree = "<group>"; };
+		54064A451EF262A600181C78 /* LXChatBoxMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXChatBoxMoreView.h; sourceTree = "<group>"; };
+		54064A461EF262A600181C78 /* LXChatBoxMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXChatBoxMoreView.m; sourceTree = "<group>"; };
+		54064A471EF262A600181C78 /* LXChatBoxMoreViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXChatBoxMoreViewItem.h; sourceTree = "<group>"; };
+		54064A481EF262A600181C78 /* LXChatBoxMoreViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXChatBoxMoreViewItem.m; sourceTree = "<group>"; };
+		54064A4C1EF2630500181C78 /* LXEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotionListView.h; sourceTree = "<group>"; };
+		54064A4D1EF2630500181C78 /* LXEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotionListView.m; sourceTree = "<group>"; };
+		54064A4F1EF2631C00181C78 /* LXChatBoxMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXChatBoxMenuView.h; sourceTree = "<group>"; };
+		54064A501EF2631C00181C78 /* LXChatBoxMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXChatBoxMenuView.m; sourceTree = "<group>"; };
+		54064A551EF2636A00181C78 /* LXEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotionPageView.h; sourceTree = "<group>"; };
+		54064A561EF2636A00181C78 /* LXEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotionPageView.m; sourceTree = "<group>"; };
+		54064A581EF2638B00181C78 /* LXEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotion.h; sourceTree = "<group>"; };
+		54064A591EF2638B00181C78 /* LXEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotion.m; sourceTree = "<group>"; };
+		54064A5B1EF263A700181C78 /* LXEmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotionButton.h; sourceTree = "<group>"; };
+		54064A5C1EF263A700181C78 /* LXEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotionButton.m; sourceTree = "<group>"; };
+		54064A5E1EF263E300181C78 /* LXEmotionMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotionMenuButton.h; sourceTree = "<group>"; };
+		54064A5F1EF263E300181C78 /* LXEmotionMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotionMenuButton.m; sourceTree = "<group>"; };
+		54064A611EF2642A00181C78 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		54064A621EF2642A00181C78 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		54064A631EF2642A00181C78 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		54064A641EF2642A00181C78 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		54064A671EF2653F00181C78 /* LXChatBoxConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXChatBoxConst.h; sourceTree = "<group>"; };
+		54064A681EF2653F00181C78 /* LXChatBoxConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXChatBoxConst.m; sourceTree = "<group>"; };
+		54064A6A1EF2666B00181C78 /* LXEmotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEmotionManager.h; sourceTree = "<group>"; };
+		54064A6B1EF2666B00181C78 /* LXEmotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEmotionManager.m; sourceTree = "<group>"; };
+		54064A6E1EF2676C00181C78 /* emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji.plist; sourceTree = "<group>"; };
+		54064A6F1EF2676C00181C78 /* normal_face.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = normal_face.plist; sourceTree = "<group>"; };
+		54064A721EF2794900181C78 /* ZFKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFKeyboardViewController.h; sourceTree = "<group>"; };
+		54064A731EF2794900181C78 /* ZFKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFKeyboardViewController.m; sourceTree = "<group>"; };
 		54072ECA1EF0038600F42DC6 /* BaseChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChatTableViewCell.h; sourceTree = "<group>"; };
 		54072ECB1EF0038600F42DC6 /* BaseChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChatTableViewCell.m; sourceTree = "<group>"; };
 		5460D3D71EEFCBC100448ED3 /* IMMessageKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMMessageKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +199,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		54064A411EF262A600181C78 /* FaceView */ = {
+			isa = PBXGroup;
+			children = (
+				54064A421EF262A600181C78 /* LXChatBoxFaceView.h */,
+				54064A431EF262A600181C78 /* LXChatBoxFaceView.m */,
+				54064A4F1EF2631C00181C78 /* LXChatBoxMenuView.h */,
+				54064A501EF2631C00181C78 /* LXChatBoxMenuView.m */,
+				54064A5E1EF263E300181C78 /* LXEmotionMenuButton.h */,
+				54064A5F1EF263E300181C78 /* LXEmotionMenuButton.m */,
+				54064A4C1EF2630500181C78 /* LXEmotionListView.h */,
+				54064A4D1EF2630500181C78 /* LXEmotionListView.m */,
+				54064A551EF2636A00181C78 /* LXEmotionPageView.h */,
+				54064A561EF2636A00181C78 /* LXEmotionPageView.m */,
+				54064A581EF2638B00181C78 /* LXEmotion.h */,
+				54064A591EF2638B00181C78 /* LXEmotion.m */,
+				54064A5B1EF263A700181C78 /* LXEmotionButton.h */,
+				54064A5C1EF263A700181C78 /* LXEmotionButton.m */,
+				54064A6A1EF2666B00181C78 /* LXEmotionManager.h */,
+				54064A6B1EF2666B00181C78 /* LXEmotionManager.m */,
+			);
+			path = FaceView;
+			sourceTree = "<group>";
+		};
+		54064A441EF262A600181C78 /* MoreView */ = {
+			isa = PBXGroup;
+			children = (
+				54064A451EF262A600181C78 /* LXChatBoxMoreView.h */,
+				54064A461EF262A600181C78 /* LXChatBoxMoreView.m */,
+				54064A471EF262A600181C78 /* LXChatBoxMoreViewItem.h */,
+				54064A481EF262A600181C78 /* LXChatBoxMoreViewItem.m */,
+			);
+			path = MoreView;
+			sourceTree = "<group>";
+		};
+		54064A6D1EF2676C00181C78 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				54064A6E1EF2676C00181C78 /* emoji.plist */,
+				54064A6F1EF2676C00181C78 /* normal_face.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		5460D3CE1EEFCBC100448ED3 = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +324,13 @@
 		5460D41D1EEFD0D300448ED3 /* ChatKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				54064A6D1EF2676C00181C78 /* Source */,
+				54064A411EF262A600181C78 /* FaceView */,
+				54064A441EF262A600181C78 /* MoreView */,
 				54064A381EF1502C00181C78 /* ZFKeyboardInputView.h */,
 				54064A391EF1502C00181C78 /* ZFKeyboardInputView.m */,
+				54064A721EF2794900181C78 /* ZFKeyboardViewController.h */,
+				54064A731EF2794900181C78 /* ZFKeyboardViewController.m */,
 			);
 			path = ChatKeyboard;
 			sourceTree = "<group>";
@@ -297,12 +391,18 @@
 		5460D4371EEFDCE200448ED3 /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				54064A611EF2642A00181C78 /* NSString+Extension.h */,
+				54064A621EF2642A00181C78 /* NSString+Extension.m */,
+				54064A631EF2642A00181C78 /* UIImage+Extension.h */,
+				54064A641EF2642A00181C78 /* UIImage+Extension.m */,
 				5460D43B1EEFE2AC00448ED3 /* mayun.jpg */,
 				5460D4381EEFDCEF00448ED3 /* UIView+Extension.h */,
 				5460D4391EEFDCEF00448ED3 /* UIView+Extension.m */,
 				540649EE1EF0DA2C00181C78 /* IMMessageAnalysis.h */,
 				540649EF1EF0DA2C00181C78 /* IMMessageAnalysis.m */,
 				54064A181EF12E8100181C78 /* ChatConst.h */,
+				54064A671EF2653F00181C78 /* LXChatBoxConst.h */,
+				54064A681EF2653F00181C78 /* LXChatBoxConst.m */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -439,6 +539,8 @@
 				5460D3E71EEFCBC100448ED3 /* Assets.xcassets in Resources */,
 				5460D43C1EEFE2AC00448ED3 /* mayun.jpg in Resources */,
 				5460D3E51EEFCBC100448ED3 /* Main.storyboard in Resources */,
+				54064A711EF2676C00181C78 /* normal_face.plist in Resources */,
+				54064A701EF2676C00181C78 /* emoji.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,21 +705,35 @@
 			files = (
 				540649B61EF0126700181C78 /* ChatPhotoCell.m in Sources */,
 				5460D4421EEFE9FB00448ED3 /* MessageItem.m in Sources */,
+				54064A571EF2636A00181C78 /* LXEmotionPageView.m in Sources */,
 				5460D43A1EEFDCEF00448ED3 /* UIView+Extension.m in Sources */,
+				54064A601EF263E300181C78 /* LXEmotionMenuButton.m in Sources */,
+				54064A741EF2794900181C78 /* ZFKeyboardViewController.m in Sources */,
+				54064A511EF2631C00181C78 /* LXChatBoxMenuView.m in Sources */,
 				5460D4151EEFCCA800448ED3 /* TabbarViewController.m in Sources */,
 				5460D4361EEFDC3200448ED3 /* XZBaseTableViewCell.m in Sources */,
 				540649B31EF00F8C00181C78 /* ChatTextCell.m in Sources */,
+				54064A6C1EF2666B00181C78 /* LXEmotionManager.m in Sources */,
+				54064A4E1EF2630500181C78 /* LXEmotionListView.m in Sources */,
+				54064A651EF2642A00181C78 /* NSString+Extension.m in Sources */,
 				54072ECC1EF0038600F42DC6 /* BaseChatTableViewCell.m in Sources */,
 				5460D3DF1EEFCBC100448ED3 /* AppDelegate.m in Sources */,
 				54064A3A1EF1502C00181C78 /* ZFKeyboardInputView.m in Sources */,
 				5460D3DC1EEFCBC100448ED3 /* main.m in Sources */,
+				54064A661EF2642A00181C78 /* UIImage+Extension.m in Sources */,
 				5460D42C1EEFD25D00448ED3 /* ChatViewController.m in Sources */,
+				54064A691EF2653F00181C78 /* LXChatBoxConst.m in Sources */,
+				54064A5D1EF263A700181C78 /* LXEmotionButton.m in Sources */,
+				54064A491EF262A600181C78 /* LXChatBoxFaceView.m in Sources */,
 				5460D4331EEFDA2200448ED3 /* ConversationTableViewCell.m in Sources */,
 				540649F31EF0E91A00181C78 /* ChatVoiceCell.m in Sources */,
 				5460D42D1EEFD25D00448ED3 /* MessageListViewController.m in Sources */,
 				5460D4181EEFCD1E00448ED3 /* BaseNavViewController.m in Sources */,
 				540649F01EF0DA2C00181C78 /* IMMessageAnalysis.m in Sources */,
+				54064A4B1EF262A600181C78 /* LXChatBoxMoreViewItem.m in Sources */,
+				54064A4A1EF262A600181C78 /* LXChatBoxMoreView.m in Sources */,
 				5460D4301EEFD36E00448ED3 /* ConversationModel.m in Sources */,
+				54064A5A1EF2638B00181C78 /* LXEmotion.m in Sources */,
 				5460D43F1EEFE99200448ED3 /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
